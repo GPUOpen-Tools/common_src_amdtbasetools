@@ -146,11 +146,11 @@ typedef size_t gtSizeType;
 #define AMDT_NDA_ACCESS 2
 #define AMDT_INTERNAL_ACCESS 3
 
-#if defined (GDT_INTERNAL)
+#if defined (AMDT_INTERNAL)
     #define AMDT_BUILD_ACCESS AMDT_INTERNAL_ACCESS
-#elif defined (GDT_NDA)
+#elif defined (AMDT_NDA)
     #define AMDT_BUILD_ACCESS AMDT_NDA_ACCESS
-#elif defined (GDT_PUBLIC)
+#elif defined (AMDT_PUBLIC)
     #define AMDT_BUILD_ACCESS AMDT_PUBLIC_ACCESS
 #else
     #error Error: Unknown build access!
