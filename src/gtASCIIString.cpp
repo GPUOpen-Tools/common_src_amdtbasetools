@@ -993,7 +993,7 @@ gtASCIIString& gtASCIIString::trim()
         // Look for the first non-whitespace character
         std::string::iterator iterFirst = startIter;
 
-        while (iterFirst != endIter && iswspace(*iterFirst))
+        while (iterFirst != endIter && isspace(*iterFirst))
         {
             ++iterFirst;
         }
@@ -1004,7 +1004,7 @@ gtASCIIString& gtASCIIString::trim()
             std::string::iterator iterLast = endIter;
             --iterLast;
 
-            while (iterLast != iterFirst && iswspace(*iterLast))
+            while (iterLast != iterFirst && isspace(*iterLast))
             {
                 --iterLast;
             }
