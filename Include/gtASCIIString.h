@@ -91,6 +91,7 @@ public:
     int compareNoCase(const gtASCIIString& otherString) const;
 
     gtASCIIString& removeTrailing(char c);
+    gtASCIIString& trim();
     void getSubString(int startPosition, int endPosition, gtASCIIString& subString) const;
     gtASCIIString& truncate(int startPosition, int endPosition);
 

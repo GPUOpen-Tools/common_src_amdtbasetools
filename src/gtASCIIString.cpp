@@ -972,6 +972,71 @@ gtASCIIString& gtASCIIString::removeTrailing(char c)
     return *this;
 }
 
+// ---------------------------------------------------------------------------
+// Name:        gtASCIIString::trim
+// Description:
+//   Removes leading and trailing whitespace characters from the string.
+//   Example:
+//   gtString foo = "  abc  ";
+//   foo.trim();
+//   Will yield "abc" string
+// Author:      AMD Developer Tools Team
+// Date:        Dec-25,2013
+// ---------------------------------------------------------------------------
+gtASCIIString& gtASCIIString::trim()
+{
+    if (_impl.length() > 0)
+    {
+        std::string::iterator startIter = _impl.begin();
+        std::string::iterator endIter = _impl.end();
+
+        // Look for the first non-whitespace character
+        std::string::iterator iterFirst = startIter;
+
+        while (iterFirst != endIter && iswspace(*iterFirst))
+        {
+            ++iterFirst;
+        }
+
+        if (iterFirst != endIter)
+        {
+            // Look for the position of the last non-whitespace
+            std::string::iterator iterLast = endIter;
+            --iterLast;
+
+            while (iterLast != iterFirst && iswspace(*iterLast))
+            {
+                --iterLast;
+            }
+
+            // Note: It is critical to remove the trailing chars before removing
+            // the leading chars. Removing the leading chars first would invalidate
+            // the iterators iterLast and endIter and cause an exception when
+            // removing the trailing chars.
+
+            // If there are trailing whitespace chars to be removed
+            if ((iterLast + 1) != endIter)
+            {
+                // Remove them:
+                _impl.erase(iterLast + 1, endIter);
+            }
+
+            // If there are leading whitespace chars to be removed
+            if (iterFirst != startIter)
+            {
+                // Remove them:
+                _impl.erase(startIter, iterFirst);
+            }
+        }
+        else
+        {
+            // The whole string is whitespace chars
+            _impl.clear();
+        }
+    }
+
+    return *this;
+}
 
 // ---------------------------------------------------------------------------
 // Name:        gtASCIIString::getSubString
