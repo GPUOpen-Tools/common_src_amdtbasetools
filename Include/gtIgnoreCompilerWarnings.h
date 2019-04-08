@@ -49,7 +49,6 @@
     #pragma warning( disable : 4786 )
 
     // Error description: error C4592: symbol will be dynamically initialized.
-    // cAn be ignored http://stackoverflow.com/questions/34013930/error-c4592-symbol-will-be-dynamically-initialized-vs2015-1-static-const-std
     #pragma warning( disable : 4592 )
 
 #endif // AMDT_CPP_COMPILER
