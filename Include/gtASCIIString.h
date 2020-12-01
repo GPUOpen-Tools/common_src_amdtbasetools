@@ -1,5 +1,5 @@
 //=====================================================================
-// Copyright 2016 (c), Advanced Micro Devices, Inc. All rights reserved.
+// Copyright 2016-2020 (c), Advanced Micro Devices, Inc. All rights reserved.
 //
 /// \author AMD Developer Tools Team
 /// \file gtASCIIString.h
@@ -137,7 +137,7 @@ public:
     void Split(const gtASCIIString& rSep, bool bCaseSensitive, std::list<gtASCIIString>& outList) const;
     size_t find_first_not_of(const char* srcStr, const size_t startIndex = 0) const;
     size_t find_last_of(const char* src, const int startIndex = -1) const;
-    gtASCIIString substr(int startPosition = 0, int count = static_cast<int>(std::string::npos)) const;
+    gtASCIIString substr(size_t startPosition = 0, size_t count = std::string::npos) const;
 };
 
 

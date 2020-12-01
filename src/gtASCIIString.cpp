@@ -1,5 +1,5 @@
 //=====================================================================
-// Copyright 2016 (c), Advanced Micro Devices, Inc. All rights reserved.
+// Copyright 2016-2020 (c), Advanced Micro Devices, Inc. All rights reserved.
 //
 /// \author AMD Developer Tools Team
 /// \file gtASCIIString.cpp
@@ -1909,7 +1909,7 @@ size_t gtASCIIString::find_last_of(const char* src, const int startIndex) const
 // Author:      AMD Developer Tools Team
 // Date:        28/6/2013
 // ---------------------------------------------------------------------------
-gtASCIIString gtASCIIString::substr(int startPosition, int count) const
+gtASCIIString gtASCIIString::substr(size_t startPosition, size_t count) const
 {
     return _impl.substr(startPosition, count).c_str();
 }
